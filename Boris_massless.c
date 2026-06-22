@@ -120,7 +120,7 @@ double *epsilon_new)
           //x_new[i]=x_old[i]+Dt*n_new[i];
 }
 
-FILE *outputrk;      /*nombre del fichero de salida*/
+FILE *output;      /*nombre del fichero de salida*/
 
 int main(void){
                   /*tiempo de ejecucion del programa*/
@@ -156,9 +156,7 @@ int main(void){
     	outputrk=fopen("mass_less3.txt","w");
     	
     			int flotante=0;		
-    			/*SOFTENER DIPOLE*/
-                            double rsoft=0.01;
-
+    			
           long long N = (long long)(max/Dt);
           for(long long j=0;j<N;j++){
 	
@@ -191,8 +189,23 @@ int main(void){
 			q3=x_new[0]*(epsilon_new*n_new[1]+q*A[1])-x_new[1]*(epsilon_new*n_new[0]+q*A[0]);  
 
                       
-                      //if(flotante==10000) /*loop para imprimir uno de cada 1000*/
-                       //{
+                     /*
+                     lista de componentes (Columns):
+
+                            1 time
+                            2 px
+                            3 py
+                            4 pz
+                            5 x
+                            6 y
+                            7 z
+                            8 mu
+                            9 |B|
+                            10 epsilon
+                            11 |n|
+                            12 energy
+                            13 canonical angular momentum
+                      */
                       fprintf(outputrk,"%f\t%f\t%lf\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\n",
                          j*Dt,
                          epsilon_new*n_new[0],
