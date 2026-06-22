@@ -71,7 +71,13 @@ double *epsilon_new)
 
     /* magnetic rotation */
 
-      for(int i=0;i<3;i++)
+	/* Using epsilon */
+	/* t[i]=q*B[i]*Dt/(2.0*epsilon); */
+
+	/* Alternative formulation */
+	/* t[i]=q*B[i]*Dt/(2.0*eps_minus); */
+    
+	for(int i=0;i<3;i++)
         t[i]=q*B[i]*Dt/(2.0*epsilon);
 
     double T=t[0]*t[0]+t[1]*t[1]+t[2]*t[2];
