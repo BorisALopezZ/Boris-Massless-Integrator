@@ -70,7 +70,14 @@ int main(void)  {
 			strftime(output,128,"%d/%m/%y %H:%M:%S",tlocal);
 			printf("%s\n",output);
 
-	double L,x0,x1,x2,x3,x4,x5,x6,x7;     /* t=lambda; x0=tiempo; (x1,x2,x3) = (x,y,z); (x4,x5,x6)=(px,py,pz) % En=x7 */
+	double L,x0,x1,x2,x3,x4,x5,x6,x7;     
+	              /*
+	                t=lambda;
+	                x0=tiempo; 
+	                (x1,x2,x3) = (x,y,z);
+	                (x4,x5,x6)=(px,py,pz) 
+	                En=x7 
+	                */
 	int j;
 		int flotante=0;		
 	outputrk=fopen("outputrk.txt","w");
